@@ -1,0 +1,23 @@
+  
+<!DOCTYPE html>
+<html>
+<head>
+<title>Christmas Look</title>
+</head>
+<body>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+
+<img src="hw.jpg" alt="Teemo14" style="width:640px;height:400px;">
+
+<p style="text-align:center;color:lightblue;font-family:futura;font-size:160%">🐶：Homework or me?<br>👩：Homework.<br>🐶：*Hands on keyborad*.<br>👩：You!</a></p>
+
+
+</body>
+</html>
