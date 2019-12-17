@@ -1,0 +1,219 @@
+var img;
+<br>
+var initials ='qz'; // your initials
+<br>
+var choice = '1'; // starting choice, so it is not empty
+<br>
+var screenbg = 235; // off white background
+<br>
+var lastscreenshot=1; // last screenshot never taken
+<br>
+<br>
+function preload() {
+<br>
+// preload() runs once, it may make you wait
+<br>
+//  img = loadImage('yasuo.jpg');  // cat.jpg needs to be next to this .js file
+<br>
+// you can link to an image on your github account
+<br>
+  img1 = loadImage('https://z9-l.github.io/diyps1106/e.jpg');
+  <br>
+  img2 = loadImage('https://z9-l.github.io/diyps1106/level7.jpg');
+  <br>
+  img3 = loadImage('https://z9-l.github.io/diyps1106/lv71.jpg');
+  <br>
+  img4 = loadImage('https://z9-l.github.io/diyps1106/lv72.jpg');
+  <br>
+  img5 = loadImage('https://z9-l.github.io/diyps1106/q.jpg');
+  <br>
+  img6 = loadImage('https://z9-l.github.io/diyps1106/qm.jpg');
+  <br>
+  img7 = loadImage('https://z9-l.github.io/diyps1106/yasuo.jpg');
+  <br>
+}
+
+
+function setup() {
+<br>
+createCanvas(1300, 700);  // canvas size
+<br>
+background(screenbg);   // use our background screen color
+<br>
+<br>
+}
+<br>
+<br>
+function draw() {
+<br>
+  if (keyIsPressed) {
+  <br>
+    choice = key; // set choice to the key that was pressed
+    <br>
+    clear_print(); // check to see if it is clear screen or save image
+    <br>
+  }
+  <br>
+  if (mouseIsPressed){
+  <br>
+    newkeyChoice(choice);  // if the mouse is pressed call newkeyChoice
+    <br>
+  }
+  <br>
+}
+<br>
+<br>
+function newkeyChoice(toolChoice) { //toolchoice is the key that was pressed
+<br>
+  // the key mapping if statements that you can change to do anything you want.
+  <br>
+  // just make sure each key option has the a stroke or fill and then what type of 
+  <br>
+  // graphic function
+  <br>
+<br>
+ if (toolChoice == '1' ) {  // first tool
+ <br>
+image(img7, mouseX, mouseY, 150, 150);
+<br>
+    <br>
+  } else if (toolChoice == '2') { // second tool
+  <br>
+image(img3, mouseX, mouseY, 150, 150);
+<br>
+   <br> 
+  } else if (toolChoice == '3') { // third tool
+  <br>
+image(img4, mouseX, mouseY, 150, 150);
+<br>
+    <br>
+  } else if (key == 'q' || key == 'Q') {
+  <br>
+image(img5, mouseX, mouseY, 150, 150);
+<br>
+    <br>
+  } else if (key == 'e' || key == 'E') { // this tool calls a function
+<br>  
+image(img1, mouseX, mouseY, 150, 150);
+<br>
+<br>
+  } else if (toolChoice == '4') {
+<br>  
+image(img6, mouseX, mouseY, 100, 100);
+<br>
+<br>    
+  } else if (toolChoice == '5') {
+ <br> 
+image(img2, mouseX, mouseY, 150, 150);
+<br>
+<br>
+  } else if (toolChoice == '6') {
+<br>  
+    stroke(0,0);
+ <br>   
+    fill(255, 210, 191, 70);
+ <br>   
+    rect(mouseX, mouseY, 50, 50);
+ <br>   
+ <br>   
+  } else if (toolChoice == '7') {
+  <br>
+    stroke(0,0);
+ <br>   
+    fill(191, 255, 255, 90);
+ <br>   
+    rect(mouseX, mouseY, 200, 200);
+  <br>  
+  <br>  
+  } else if (toolChoice == '8') {
+ <br> 
+    stroke(0,0);
+ <br>   
+    fill(255, 191, 216, 50);
+ <br>   
+    rect(mouseX, mouseY, 200, 200);
+ <br>   
+<br>    
+  } else if (toolChoice == '9') {
+  <br>
+    stroke(0,0);
+ <br>   
+    fill(191, 207, 255, 100);
+  <br>  
+    rect(mouseX, mouseY, 180, 80);
+  <br>  
+  } else if (toolChoice == '0') {
+  <br>
+    stroke(0, 0);
+ <br>   
+    fill(255, 238, 191, 110);
+  <br>  
+    rect(mouseX, mouseY, 100, 500);
+  <br>  
+  }
+ <br> 
+ }
+ <br>
+ <br>
+function testbox() {
+<br>
+// this is a test function that will show you how you can put your own functions into the sketch
+<br>
+  x = mouseX;
+  <br>
+  y = mouseY;
+ <br> 
+  fill(200, 20, 20);
+ <br> 
+  rect(30+x, 120+y, 100, 100);
+ <br> 
+  fill(20, 20, 200);
+ <br> 
+  rect(x-34, y-56, 100, 100);
+ <br> 
+  fill(20, 20, 20);
+ <br>
+  rect(x,y,x+34, y+20);
+ <br> 
+}
+<br>
+<br>
+function clear_print() {
+<br>
+// this will do one of two things, x clears the screen by resetting the background
+<br>
+// p calls the routine saveme, which saves a copy of the screen
+<br>
+  if (key == 'x' || key == 'X') {
+ <br> 
+    background(screenbg); // set the screen back to the background color
+  <br>  
+  } else if (key == 'p' || key == 'P') {
+  <br>
+     saveme();  // call saveme which saves an image of the screen
+ <br>   
+  }
+  <br>
+}
+<br>
+<br>
+function saveme(){
+<br>
+    //this will save the name as the intials, date, time and a millis counting number.
+  <br>  
+    // it will always be larger in value then the last one.
+ <br>   
+  filename=initials+day() + hour() + minute() +second();
+<br>  
+  if (second()!=lastscreenshot) { // don't take a screenshot if you just took one
+  <br>
+    saveCanvas(filename, 'jpg');
+ <br>   
+  }
+ <br> 
+  lastscreenshot=second(); // set this to the current second so no more than one per second
+  <br>
+  <br>
+}
+<br>
+<br>
